@@ -1,7 +1,6 @@
 import logging, sys
-
-def setup_logging(level: str = "INFO") -> None:
-    logging.basicConfig(level=getattr(logging, level), format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s", handlers=[logging.StreamHandler(sys.stdout)])
-
-def get_logger(name: str) -> logging.Logger:
-    return logging.getLogger(name)
+def setup(name: str = "nlp-toolkit") -> logging.Logger:
+    log = logging.getLogger(name)
+    log.addHandler(logging.StreamHandler(sys.stdout))
+    log.setLevel(logging.INFO)
+    return log

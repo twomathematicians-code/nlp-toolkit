@@ -1,42 +1,37 @@
-# 🧠 ML NLP Toolkit
+# 🧠 NLP Microservices Toolkit
 
-[![CI/CD](https://github.com/twomathematicians-code/ml-nlp-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/twomathematicians-code/ml-nlp-toolkit/actions)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker)](https://hub.docker.com/)
-[![HuggingFace](https://img.shields.io/badge/🤗_Transformers-Ready-FFD21E)](https://huggingface.co/)
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&height=120&section=header&text=Named+Entity+%7C+Summarize+%7C+Translate+%7C+Keywords" />
+</p>
 
-**Production NLP microservices: Named Entity Recognition, Text Summarization, Keyword Extraction, Language Detection & Translation — all via FastAPI with HuggingFace transformers.**
+Five independent NLP microservices in one deployable API. Each endpoint does one thing well.
 
-## 🎯 NLP Modules
+---
 
-| Module | Algorithm | Output |
-|---|---|---|
-| **Named Entity Recognition** | spaCy + BERT-NER | Persons, Orgs, Locations, Dates |
-| **Text Summarization** | BART / T5 | Extractive & Abstractive summaries |
-| **Keyword Extraction** | KeyBERT + YAKE | Top-N keywords with scores |
-| **Language Detection** | FastText + langdetect | 170+ languages |
-| **Machine Translation** | OPUS-MT / NLLB | 50+ language pairs |
+## 🔧 Services
 
-## 🚀 Quick Start
+| Service | Endpoint | Input | Output |
+|:--|:--|:--|:--|
+| **Named Entity Recognition** | `POST /api/v1/ner` | Raw text | Persons, Orgs, Locations with confidence |
+| **Text Summarization** | `POST /api/v1/summarize` | Article | Condensed summary |
+| **Keyword Extraction** | `POST /api/v1/keywords` | Document | Ranked keywords + n-grams |
+| **Language Detection** | `POST /api/v1/detect-language` | Text | ISO code + confidence |
+| **Translation** | `POST /api/v1/translate` | Text + target | Translated text |
+
+## Deploy
 
 ```bash
-git clone https://github.com/twomathematicians-code/ml-nlp-toolkit.git
-cd ml-nlp-toolkit
-docker-compose up --build
+docker compose up -d
+# Docs: http://localhost:8000/docs
 ```
 
-API at `http://localhost:8000/docs`
+## Example
 
-## 🔌 API Endpoints
+```bash
+curl -X POST http://localhost:8000/api/v1/ner \
+  -d '{"text": "Barack Obama was born in Honolulu, Hawaii and studied at Harvard University"}'
+```
 
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/api/v1/ner` | Named entity recognition |
-| `POST` | `/api/v1/summarize` | Text summarization |
-| `POST` | `/api/v1/keywords` | Keyword extraction |
-| `POST` | `/api/v1/detect-language` | Language detection |
-| `POST` | `/api/v1/translate` | Machine translation |
-| `GET` | `/api/v1/health` | Health check |
+---
 
-## 👤 Author
-
-**Mahesh Solanki** — [LinkedIn](https://linkedin.com/in/maheshsolanki-16b9a6a5) | [GitHub](https://github.com/twomathematicians-code)
+<p align="center"><i>By Mahesh Solanki</i></p>

@@ -1,4 +1,36 @@
-model:
-  random_state: 42
-  test_size: 0.2
-  cv_folds: 5
+nlp:
+  default_language: en
+  supported_languages:
+    en: English
+    fr: French
+    de: German
+    es: Spanish
+    nl: Dutch
+    it: Italian
+    pt: Portuguese
+    ja: Japanese
+    zh: Chinese
+    ar: Arabic
+    hi: Hindi
+
+  ner:
+    model: spacy_en_core_web_lg
+    confidence_threshold: 0.7
+    max_entities: 50
+
+  summarization:
+    min_sentences: 2
+    compression_ratio: 0.3
+    styles:
+      - extractive
+      - abstractive
+      - bullets
+      - headline
+
+  keywords:
+    default_top_k: 10
+    max_n_grams: 3
+
+  translation:
+    default_source: auto
+    max_text_length: 5000

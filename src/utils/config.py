@@ -1,13 +1,12 @@
-from pydantic import Field
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings
 from functools import lru_cache
 
-class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env")
-    environment: str = "development"
-    log_level: str = "INFO"
-    mlflow_tracking_uri: str = "http://localhost:5000"
+class NLSettings(BaseSettings):
+    spacy_model: str = "en_core_web_sm"
+    cache_ttl: int = 3600
+    max_text_length: int = 10000
+    default_language: str = "en"
 
 @lru_cache
-def get_settings() -> Settings:
-    return Settings()
+def get_settings() -> NLSettings:
+    return NLSettings()
