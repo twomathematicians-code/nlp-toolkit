@@ -1,5 +1,12 @@
 # 🧠 NLP Microservices Toolkit
 
+[![CI](https://github.com/twomathematicians-code/nlp-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/twomathematicians-code/nlp-toolkit/actions)
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue?logo=python)](https://www.python.org/)
+[![spaCy](https://img.shields.io/badge/spaCy-NLP-09a3d5?logo=spacy)](https://spacy.io/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688?logo=fastapi)](https://fastapi.tiangolo.com/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker)](https://hub.docker.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&height=120&section=header&text=Named+Entity+%7C+Summarize+%7C+Translate+%7C+Keywords" />
 </p>
