@@ -1,4 +1,5 @@
 [tool.poetry]
+packages = [{include = "src"}]
 name = "nlp-toolkit"
 version = "1.0.0"
 description = "NLP microservices: NER, summarization, keyword extraction, language detection, and translation powered by spaCy and transformers."
