@@ -42,3 +42,4 @@ curl -X POST http://localhost:8000/api/v1/ner \
 ---
 
 <p align="center"><i>By Mahesh Solanki</i></p>
+# Update
