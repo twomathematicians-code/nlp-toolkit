@@ -1,13 +1,23 @@
 services:
   nlp-api:
     build: .
-    ports: ["8000:8000"]
+    ports:
+      - "8000:8000"
     volumes:
-      - spacy_models:/app/models
+      - hf_cache:/root/.cache/huggingface  # Cache HuggingFace models
     environment:
-      SPACY_MODEL: en_core_web_lg
-      CACHE_TTL: 3600
+      NLP_SPACY_MODEL: en_core_web_sm
+      NLP_SUMMARIZER_MODEL: sshleifer/distilbart-cnn-12-6
+      NLP_KEYWORD_MODEL: distilbert-base-uncased
+      NLP_LOG_LEVEL: INFO
+      NLP_CORS_ORIGINS: "*"
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
 
 volumes:
-  spacy_models:
+  hf_cache:

@@ -1,3 +1,3 @@
-"""NLP Toolkit API — Production ML Pipeline."""
+"""NLP Toolkit — Production-grade NLP microservices."""
 
-__version__ = "1.0.0"
+__version__ = "2.0.0"
